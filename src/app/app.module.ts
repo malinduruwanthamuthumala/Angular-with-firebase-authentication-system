@@ -13,6 +13,10 @@ import { ForgotPassordComponent } from './forgot-passord/forgot-passord.componen
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AuthService } from "./shared/services/auth.service";
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { ProfileComponent } from './customerdashboard/profile/profile.component';
 // import { AuthGuard } from "./shared/guard/auth.guard";
 // import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard.guard";
 
@@ -24,7 +28,11 @@ import { AuthService } from "./shared/services/auth.service";
     SigninComponent,
     SignupComponent,
     ForgotPassordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    NavbarComponent,
+    HomepageComponent,
+    SidenavComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
