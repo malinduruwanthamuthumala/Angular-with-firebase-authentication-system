@@ -17,6 +17,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ProfileComponent } from './customerdashboard/profile/profile.component';
+import { VehiclesComponent } from './customerdashboard/vehicles/vehicles.component';
+import { VehicleComponent } from './customerdashboard/vehicles/vehicle/vehicle.component';
+import { VehicleListComponent } from './customerdashboard/vehicles/vehicle-list/vehicle-list.component';
+import {VehicleService} from './shared/vehicle.service';
 // import { AuthGuard } from "./shared/guard/auth.guard";
 // import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard.guard";
 
@@ -32,7 +36,10 @@ import { ProfileComponent } from './customerdashboard/profile/profile.component'
     NavbarComponent,
     HomepageComponent,
     SidenavComponent,
-    ProfileComponent
+    ProfileComponent,
+    VehiclesComponent,
+    VehicleComponent,
+    VehicleListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,7 @@ import { ProfileComponent } from './customerdashboard/profile/profile.component'
     AngularFirestoreModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,VehicleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
