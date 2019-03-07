@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -21,8 +21,13 @@ import { VehiclesComponent } from './customerdashboard/vehicles/vehicles.compone
 import { VehicleComponent } from './customerdashboard/vehicles/vehicle/vehicle.component';
 import { VehicleListComponent } from './customerdashboard/vehicles/vehicle-list/vehicle-list.component';
 import {VehicleService} from './shared/vehicle.service';
-// import { AuthGuard } from "./shared/guard/auth.guard";
-// import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard.guard";
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ import { ToastrModule } from 'ngx-toastr';
+
+import { HttpClientModule } from '@angular/common/http';
+import {  ReactiveFormsModule } from '@angular/forms'; 
+
 
 
 @NgModule({
@@ -46,7 +51,13 @@ import {VehicleService} from './shared/vehicle.service';
     AngularFireModule.initializeApp(environment.config),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+   
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot()
   ],
   providers: [AuthService,VehicleService],
   bootstrap: [AppComponent]
