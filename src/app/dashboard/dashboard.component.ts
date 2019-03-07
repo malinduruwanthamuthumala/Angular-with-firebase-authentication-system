@@ -24,13 +24,18 @@ usersCustomerId ='';
     private router: Router,
     private af: AuthService,
   ) { 
-   
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.usersCustomerId = user.uid;
+       
+      } 
+    })
   }
 
 
   ngOnInit() {
     
-    
+    console.log(this.usersCustomerId);
     
   }
 

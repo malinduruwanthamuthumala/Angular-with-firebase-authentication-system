@@ -7,7 +7,7 @@
     <div class="jumbotron-fluid">
         <form  autocomplete="on" #form="ngForm"  (submit)="onSubmit(form)">
             <div class="" >
-              <label for="">Registration Number</label>
+              <label for="">registration Number</label>
               <input type="text" class="form-control" name="Reg_no" [(ngModel)]="service.FormData.Reg_no" id="Reg_no" required #Reg_no="ngModel">
               <div class="validation-error" *ngIf="Reg_no.invalid && Reg_no.touched" style="color:red">This field is required</div>
             </div>
@@ -18,18 +18,18 @@
               </div>
         
                 <div class="form-group">
-                  <label for="">Odometer reading</label>
+                  <label for="">odometer reading</label>
                   <input  class="form-control"  name="Odometer_reading"  [(ngModel)]="service.FormData.Odometer_reading" id="Odometer_reading" required #Odometer_reading="ngModel">
                   <div class="validation-error" *ngIf="Odometer_reading.invalid && Odometer_reading.touched" style="color:red">This field is required</div>
                 </div>
         
                 <div class="form-group">
-                    <label for="">Manufactured year</label>
+                    <label for="">manufactured year</label>
                     <input   class="form-control"  name="last_service_date"  [(ngModel)]="service.FormData.last_service_date" id="last_service_date" #last_service_date="ngModel">
                     
                 </div>
                 <div class="form-group">
-                      <label for="">Model</label>
+                      <label for="">model</label>
                       <input   class="form-control"  name="model"  [(ngModel)]="service.FormData.model" id="model"  #model="ngModel" required>
                       <div class="validation-error" *ngIf="model.invalid && model.touched" style="color:red">This field is required</div>
                 </div>
