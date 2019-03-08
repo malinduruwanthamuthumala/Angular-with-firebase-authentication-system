@@ -7,6 +7,11 @@
     <div class="jumbotron-fluid">
         <form  autocomplete="on" #form="ngForm"  (submit)="onSubmit(form)">
             <div class="" >
+               
+                <input type="hidden" class="form-control" name="id" [(ngModel)]="service.FormData.id" id="id"  #id="ngModel">
+                <div class="validation-error" *ngIf="Reg_no.invalid && Reg_no.touched" style="color:red">This field is required</div>
+              </div>
+            <div class="" >
               <label for="">Registration Number</label>
               <input type="text" class="form-control" name="Reg_no" [(ngModel)]="service.FormData.Reg_no" id="Reg_no" required #Reg_no="ngModel">
               <div class="validation-error" *ngIf="Reg_no.invalid && Reg_no.touched" style="color:red">This field is required</div>

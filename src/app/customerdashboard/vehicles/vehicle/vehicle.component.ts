@@ -3,6 +3,14 @@ import { VehicleService } from 'src/app/shared/vehicle.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { AngularFireAuth } from '@angular/fire/auth';
+
+import { AuthService } from "../../../shared/services/auth.service";
+import { Injectable, NgZone } from '@angular/core';
+
+import { auth, User } from 'firebase/app';
+
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-vehicle',
@@ -10,15 +18,31 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./vehicle.component.css']
 })
 export class VehicleComponent implements OnInit {
-  
+  usersCustomerId ='';
   constructor(private service: VehicleService,
   private firestore:AngularFirestore,
-  private toastr : ToastrService  ){
+  private toastr: ToastrService,
+  public afAuth: AngularFireAuth,
+  public authService: AuthService,
+  public afs: AngularFirestore,   // Inject Firestore service
+  private router: Router,
+  private af: AuthService,)
+  {
+    
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.usersCustomerId = user.uid;
+        
+      } 
+    }) 
 
   }
 
   ngOnInit() {
     this.resetForm();
+    
+    console.log(this.usersCustomerId );
+    
     
   }
 
@@ -41,13 +65,20 @@ export class VehicleComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    let data = form.value;
-    console.log(data);
-    this.firestore.collection('vehicles').add(data);
-    this.toastr.success('vehicle registered successfully','vehicle.register');
+    let data = Object.assign({},form.value);
+    delete data.id;
+    if(form.value.id==null) {
+      this.firestore.firestore.doc('users/' +this.usersCustomerId ).collection('vehicles').add(data);
+    }else{
+      this.firestore.firestore.doc('users/' +this.usersCustomerId ).collection('vehicles').doc(form.value.id).update(data);
+    }
+   
+   
     this.resetForm(form);
-    this.toastr.success('vehicle registered successfully','vehicle.register');
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
+
+  
 
 
 
