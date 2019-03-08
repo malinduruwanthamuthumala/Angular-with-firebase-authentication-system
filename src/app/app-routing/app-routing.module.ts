@@ -14,6 +14,7 @@ import { ForgotPassordComponent } from '../forgot-passord/forgot-passord.compone
  import { SecureInnerPagesGuard } from "../shared/guard/secure-inner-pages.guard.guard";
  import { ProfileComponent } from "../customerdashboard/profile/profile.component";
  import {VehiclesComponent} from '../customerdashboard/vehicles/vehicles.component'
+import { GenerateqrComponent } from '../servicestation/generateqr/generateqr.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -24,7 +25,7 @@ const routes: Routes = [
    { path: 'verify-email-address', component: VerifyEmailComponent },
    { path: 'customer-profile', component: ProfileComponent },
    { path: 'vehicle-register', component: VehiclesComponent },
-
+   { path: 'qr-generator', component: GenerateqrComponent }
 ];
 
 @NgModule({

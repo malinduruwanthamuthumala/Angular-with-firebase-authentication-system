@@ -23,11 +23,12 @@ import { VehicleListComponent } from './customerdashboard/vehicles/vehicle-list/
 import {VehicleService} from './shared/vehicle.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
-  
+import { QRCodeModule } from 'angularx-qrcode';  
 import { HttpClientModule } from '@angular/common/http';
-import {  ReactiveFormsModule } from '@angular/forms'; 
+import {  ReactiveFormsModule } from '@angular/forms';
+import { GenerateqrComponent } from './servicestation/generateqr/generateqr.component'; 
 
 
 
@@ -45,7 +46,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     VehiclesComponent,
     VehicleComponent,
-    VehicleListComponent
+    VehicleListComponent,
+    GenerateqrComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +58,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-   
     BrowserAnimationsModule, 
+    QRCodeModule,
     ToastrModule.forRoot()
   ],
   providers: [AuthService,VehicleService],
