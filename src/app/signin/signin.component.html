@@ -1,5 +1,6 @@
 
-<div class="container">
+
+<div class="container" style="margin-top:50px">
  
   <div class="row ">
     <div class="col-md-4"></div>
@@ -13,42 +14,49 @@
       
       </div>
       <br>
-    <div class="col-md-4 jumbotron">
+    <div class="col-md-4  text-center  p-10 border border-info" style="padding:40px">
+        <p class="h4 mb-4">Sign in</p>
       
-      <input type="email" class="form-control" placeholder="user email"  #userName required>
+      <input type="email" id="defaultLoginFormEmail" class="form-control" placeholder="user email"  #userName required>
       <br>
-      <input type="password" class="form-control" placeholder="Password" #userPassword required>
+      <input type="password"  id="defaultLoginFormPassword" class="form-control" placeholder="Password" #userPassword required>
       <br>
 
-      <div class="row">
-        <div class="col-md-3">
-          <div class="formGroup">
-            <input type="button" class="btn btn-primary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+      <div class="d-flex justify-content-around">
+          <div>
+              <!-- Remember me -->
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                  <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+              </div>
           </div>
-        </div>
-        <div class="col-md-7">
+          <div>
+              <!-- Forgot password -->
+              <a  routerLink="/forgot-password">Forgot password?</a>
+          </div>
+      </div>
+      
           <div class="formGroup">
-            <button type="button" class="btn btn-outline-danger" (click)="authService.GoogleAuth()">
+            <input type="button" class="btn btn-info btn-block my-4" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+          </div>
+       
+        
+          <div class="formGroup">
+            <button type="button" class="btn btn-outline-danger btn-block my-4" (click)="authService.GoogleAuth()">
               <i class="fab fa-google-plus-g"></i>
               Log in with Google
             </button>
           </div>
-        </div>
-      </div>
+       
+          <p>Not a member?
+              <a  routerLink="/register-user">Register</a>
+          </p>
      
-      <br>
-      
-      
-    <div class="redirectToLogin">
-      <span>Don't have an account?<a class="redirect btn " routerLink="/register-user"> Sign Up</a></span>
-    </div>
-
-    <div class="forgotPassword">
-      <a routerLink="/forgot-password">Forgot Password?</a>
-    </div>
+     
   
     
     </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      
   </div>
