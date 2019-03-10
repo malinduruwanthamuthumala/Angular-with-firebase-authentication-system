@@ -29,17 +29,18 @@ export class VehicleComponent implements OnInit {
   private af: AuthService,)
   {
     
+    
+
+  }
+
+  ngOnInit() {
+    this.resetForm();
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.usersCustomerId = user.uid;
         
       } 
     }) 
-
-  }
-
-  ngOnInit() {
-    this.resetForm();
     
     console.log(this.usersCustomerId );
     

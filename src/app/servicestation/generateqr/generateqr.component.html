@@ -1,7 +1,11 @@
 <div class="container ">
     <h4>Enter the vehicle registration number</h4>
     <br>
-    <qrcode [qrdata]="qrdata" [size]="256" [level]="'M'"></qrcode>
+    <div>
+        <p>luckvin auto care services</p>
+        <qrcode [qrdata]="qrdata" [size]="256" [level]="'M'"></qrcode>
+        <p [(ngModel)]="qrdata"></p>
+    </div>
     
     <br>
     <br>

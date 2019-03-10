@@ -32,4 +32,6 @@ export class VehicleService {
   getVehicles(){
     return this.firestore.doc('users/' +this.usersCustomerId ).collection('vehicles').snapshotChanges();
   }
+
+  
 }

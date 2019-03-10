@@ -29,6 +29,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { HttpClientModule } from '@angular/common/http';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { GenerateqrComponent } from './servicestation/generateqr/generateqr.component'; 
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 
 
@@ -47,7 +48,7 @@ import { GenerateqrComponent } from './servicestation/generateqr/generateqr.comp
     VehiclesComponent,
     VehicleComponent,
     VehicleListComponent,
-    GenerateqrComponent
+    GenerateqrComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +61,7 @@ import { GenerateqrComponent } from './servicestation/generateqr/generateqr.comp
     ReactiveFormsModule,
     BrowserAnimationsModule, 
     QRCodeModule,
+    ZXingScannerModule,
     ToastrModule.forRoot()
   ],
   providers: [AuthService,VehicleService],

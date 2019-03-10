@@ -3,16 +3,11 @@ import { VehicleService } from 'src/app/shared/vehicle.service';
 import { Vehicle } from 'src/app/shared/vehicle.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
-
 import { NgForm } from '@angular/forms';
-
 import { AngularFireAuth } from '@angular/fire/auth';
-
 import { AuthService } from "../../../shared/services/auth.service";
 import { Injectable, NgZone } from '@angular/core';
-
 import { auth, User } from 'firebase/app';
-
 import { Router } from "@angular/router";
 
 @Component({
@@ -23,6 +18,7 @@ import { Router } from "@angular/router";
 export class VehicleListComponent implements OnInit {
 list:Vehicle[];
 usersCustomerId='';
+VehicleId='';
   constructor(private service: VehicleService,
     private firestore:AngularFirestore,
     private toastr:ToastrService,
@@ -33,24 +29,27 @@ usersCustomerId='';
   public afs: AngularFirestore,   // Inject Firestore service
   private router: Router,
   private af: AuthService,) {
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.usersCustomerId = user.uid;
-        
-      } 
-    }) 
+    
    
    }
 
   ngOnInit() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.usersCustomerId = user.uid;
+        } 
+    }) 
+    
     this.service.getVehicles().subscribe(actionArray => {
-      this.list = actionArray.map(item=>{
+     this.list = actionArray.map(item=>{
         return { 
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         } as Vehicle
       })
     });
+    
+  
   }
 
   onEdit(emp:Vehicle){
