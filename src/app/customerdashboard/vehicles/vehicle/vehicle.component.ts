@@ -19,6 +19,7 @@ import { Router } from "@angular/router";
 })
 export class VehicleComponent implements OnInit {
   usersCustomerId ='';
+  alert=true;
   constructor(private service: VehicleService,
   private firestore:AngularFirestore,
   private toastr: ToastrService,
@@ -38,14 +39,11 @@ export class VehicleComponent implements OnInit {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.usersCustomerId = user.uid;
-        
-      } 
+       } 
     }) 
     
     console.log(this.usersCustomerId );
-    
-    
-  }
+    }
 
   resetForm(form ? :NgForm){
   if(form != null)
@@ -77,10 +75,17 @@ export class VehicleComponent implements OnInit {
    
     this.resetForm(form);
     this.toastr.success('Hello world!', 'Toastr fun!');
+    this.alert=false;
+    setTimeout( () => {
+       this.alert=false;
+  }, 1500);
+    
+    
   }
 
   
 
+ }
 
 
-}
+

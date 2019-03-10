@@ -6,6 +6,7 @@
        </div>
     <div class="jumbotron-fluid">
         <form  autocomplete="on" #form="ngForm"  (submit)="onSubmit(form)">
+          <div class="alert alert-success" [hidden]="alert" >vehicle registerd successfully</div>
             <div class="" >
                
                 <input type="hidden" class="form-control" name="id" [(ngModel)]="service.FormData.id" id="id"  #id="ngModel">
